@@ -25,11 +25,14 @@ function insertAt(arr, index, value) {
 }
 
 function deleteAt(arr, index) {
-  for (let i = index; i < arr.length - 1; i++) {
-    arr[i] = arr[i + 1];
+  const newArr = [...arr];
+  for (let i = index; i < newArr.length - 1; i++) {
+    newArr[i] = newArr[i + 1];
   }
-  arr.length = arr.length - 1; // 마지막 요소 제거
-  return arr;
+  newArr.length = newArr.length - 1; // 마지막 요소 제거
+  return newArr;
 }
 
-console.log(deleteAt([1, 2, 3, 4], 2));
+console.log(deleteAt([1, 2, 3, 4], 2)); // [1, 2, 4]
+console.log(deleteAt([1, 2, 3, 4], 0)); // [2, 3, 4]
+console.log(deleteAt([1, 2, 3, 4], 3)); // [1, 2, 3]
